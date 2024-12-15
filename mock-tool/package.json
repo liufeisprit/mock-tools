@@ -1,0 +1,39 @@
+{
+  "name": "mock-tools",
+  "version": "0.0.1",
+  "description": "a npm module to mock/modify xhr/fetch responses for front-end development",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "prepublishOnly": "npm run build"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": ["mock", "xhr", "fetch", "mock-tool"],
+  "authors": ["liufei"],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "compiled"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "unbuild": "^2.0.0",
+    "@babel/plugin-transform-runtime": "^7.25.9"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "localforage": "^1.10.0",
+    "lodash": "^4.17.21"
+  }
+}

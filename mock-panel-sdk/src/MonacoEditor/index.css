@@ -1,0 +1,32 @@
+
+.mock-sdk-monaco-editor-container {
+    position: relative;
+    height: calc(100vh - 140px);
+    background-color: #18212d;
+}
+
+.mock-sdk-monaco-editor-header {
+    height: 40px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffffb3 !important;
+    border-bottom: 1px solid #2b2d42;
+}
+
+.mock-sdk-monaco-language-select {
+    width: 110px;
+}
+.mock-sdk-monaco-language-select .mock-sdk-select-selector {
+    border: none !important;
+    background: #353c47 !important;
+    color: #ffffffb3 !important;;
+}
+.mock-sdk-monaco-language-select .mock-sdk-select-arrow {
+    color: #ffffffb3 !important;
+}
+
+.mock-sdk-monaco-language-select .mock-sdk-select-selection-item {
+    color: #ffffffb3 !important;
+}
