@@ -25,7 +25,6 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pnpm install
           cd mock-tool && pnpm install
           cd ../mock-panel-sdk && pnpm install
           
