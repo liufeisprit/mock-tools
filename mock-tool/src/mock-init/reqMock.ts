@@ -1,4 +1,4 @@
-import { isMatchingPattern, sliceUrlPath, isString, isUrlValid, printLog, cloneXHR } from '@/utils'
+import { isMatchingPattern, sliceUrlPath, isString, isUrlValid, printLog, cloneXHR, parseFullUrl } from '@/utils'
 import Store from '@/utils/store'
 
 type ReportListItem = {
@@ -266,8 +266,8 @@ const startMock = async(options) => {
   XMLHttpRequest.prototype.open = function(method, url: string, ...args) {
     const curArgs = Array.from(arguments)
     const xhr = this;
+    const url_ = sliceUrlPath(parseFullUrl(url))
     // 不一定请求成功 新接口这里都是请求失败
-    const url_ = sliceUrlPath(url)
     const reportData = {
       url: url_,
       method,
@@ -324,9 +324,9 @@ const startMock = async(options) => {
     let url_ = ''
     if (url) {
       if (typeof url === 'string') {
-        url_ = sliceUrlPath(url)
+        url_ = sliceUrlPath(parseFullUrl(url))
       } else if (typeof url === 'object' && url instanceof Request) {
-        url_ = sliceUrlPath(url.url)
+        url_ = sliceUrlPath(parseFullUrl(url.url))
       }
       if (isUrlValid(url_, rules, excludeRules_)) {
         requestListData[url_] = {

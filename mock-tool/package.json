@@ -1,6 +1,6 @@
 {
   "name": "mock-tools",
-  "version": "0.0.1",
+  "version": "0.0.1-beta.1",
   "description": "a npm module to mock/modify xhr/fetch responses for front-end development",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -16,7 +16,7 @@
       "require": "./dist/index.cjs"
     }
   },
-  "keywords": ["mock", "xhr", "fetch", "mock-tool"],
+  "keywords": ["mock", "xhr", "fetch", "mock-tool","mock responses"],
   "authors": ["liufei"],
   "license": "MIT",
   "files": [

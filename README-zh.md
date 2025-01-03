@@ -13,7 +13,7 @@
 ```
 npm i mock-tools@latest
 ```
-```javascript`
+```javascript
 // 入口文件
 import { mockInit } from 'mock-tools'
 // 在应用程序入口最上面调用
@@ -21,7 +21,7 @@ import { mockInit } from 'mock-tools'
 mockInit({
     rules:[],  //匹配拦截的域名 支持正则 一般只配置这个 项目请求的主域名
     excludeRules:[] , // 匹配不拦截的域名 支持正则 内置了一些默认值
-    mockSdkUrl: '' // mock面板sdk地址
+    mockPanelSdkUrl: '' // mock面板sdk地址
 })}
 // vue项目
 mockInit({
@@ -43,7 +43,7 @@ mockInit({
 ### 自定义响应数据
 在响应编辑器中，您可以：
 1. 自由编辑响应数据
-2. 基于 panel-sdk 进行功能扩展.例如: 结合 API 文档自动生成 Mock 数据,自定义开发通过 AI 智能生成模拟数据
+2. 基于 panel-sdk 进行功能扩展.例如: 结合 API 文档自动生成 Mock 数据,自定义开发通过 AI + api schema生成Mock数据
 
 ## License
 MIT License.

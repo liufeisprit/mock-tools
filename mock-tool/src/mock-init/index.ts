@@ -6,7 +6,7 @@ type InitOptions = {
   auto?: boolean
   rules?: string[]
   excludeRules?: string[]
-  mockSdkUrl: string
+  mockPanelSdkUrl: string
 }
 const mockInit = async(options?: InitOptions) => {
   // 非正式环境才上报
@@ -22,7 +22,7 @@ const mockInit = async(options?: InitOptions) => {
     // 监听mock开关切换
     listenMockSwitch(options)
     // 加载mock可视化工具
-    loadMockTool(options.mockSdkUrl||'')
+    loadMockTool(options.mockPanelSdkUrl || 'https://unpkg.com/mock-tools@latest/dist/mock-panel-sdk.umd.js')
     return true
   }
   return true

@@ -29,11 +29,11 @@ const loadToolModule = () => {
   document.getElementsByTagName('body')[0].appendChild(mockDiv)
 }
 
-const mockTool = (mockSdkUrl: string) => {
+const mockTool = (mockPanelSdkUrl: string) => {
   if (typeof window === 'undefined') {
     return
   }
   loadToolModule()
-  loadScript(mockSdkUrl)
+  loadScript(mockPanelSdkUrl)
 }
 export default mockTool

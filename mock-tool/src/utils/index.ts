@@ -1,3 +1,7 @@
+const OriginalXHR = (() => {
+  const orig = window.XMLHttpRequest;
+  return orig;
+})();
 export function EnvironmentalTag() {
   const dev = process.env.NODE_ENV === 'development'
   let tag = 'pro'
@@ -85,7 +89,8 @@ export const isUrlValid = (url: string, rules?: string[], excludeRules_?: string
 
 // 复制 XHR 的所有配置
 export function cloneXHR(originalXhr) {
-  const newXhr = new XMLHttpRequest();
+  // 使用OriginalXHR是因为此时的XMLHttpRequest可能已经被修改过了 例如vconsole
+  const newXhr = new OriginalXHR();
 
   // 1. 复制 open 配置
   const openArgs = originalXhr._openArgs;
@@ -179,4 +184,22 @@ export const printLog = ({
     console.info('%cModified Response Payload：', 'background-color: #ff5500; color: white;', JSON.parse(mockData || null));
   }
   console.groupEnd();
+}
+
+// 处理 URL 的统一函数
+export function parseFullUrl(url: string | URL) {
+  let inputUrl = typeof url === 'string' ? url : url.toString();
+
+  // 构建完整 URL
+  if (inputUrl.startsWith('//')) {
+    // 处理省略协议的 URL
+    return `${location.protocol}${inputUrl}`;
+  } else if (inputUrl.startsWith('/')) {
+    // 处理相对路径
+    return `${location.origin}${inputUrl}`;
+  } else if (!inputUrl.startsWith('http')) {
+    // 处理其他相对路径情况
+    return new URL(inputUrl, location.href).href;
+  }
+  return inputUrl;
 }

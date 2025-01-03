@@ -5,6 +5,9 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), vitePluginCssInjectedByJs()],
+  define: {
+    'process.env': {}  // 或提供具体的环境变量值
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
@@ -15,8 +18,11 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/main.tsx'),
       name: 'MockPanelSDK',
-      fileName: 'mock-panel-sdk',
-      formats: ['umd']
+      fileName: (format) => {
+        if (format === 'es') return 'mock-panel-sdk.js'
+        return `mock-panel-sdk.${format}.js`
+      },
+      formats: ['es','cjs','umd']
     },
     rollupOptions: {
       output: {

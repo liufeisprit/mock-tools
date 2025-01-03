@@ -1,5 +1,5 @@
 
-[English](./README.md) | 简体中文
+English | [简体中文](./README-zh.md)
   
 A powerful tool for intercepting and modifying Ajax/Fetch request responses.
 
@@ -13,7 +13,7 @@ A powerful tool for intercepting and modifying Ajax/Fetch request responses.
 ```
 npm i mock-tools@latest
 ```
-```javascript`
+```javascript
 // Entry file
 import { mockInit } from 'mock-tools'
 // Initialize at application entry
@@ -21,7 +21,7 @@ import { mockInit } from 'mock-tools'
 mockInit({
     rules:[],  // Domain rules to intercept (supports regex), typically just configure main project domain
     excludeRules:[] , // Domain rules to exclude (supports regex), includes built-in exclusions
-    mockSdkUrl: '' // Mock panel SDK URL
+    mockPanelSdkUrl: '' // Mock panel SDK URL
 })}
 // Vue projects
 mockInit({

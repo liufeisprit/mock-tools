@@ -17,7 +17,6 @@ import React, {
 import MonacoEditor from "../MonacoEditor";
 import { RESPONSE_EXAMPLES } from "../common/value";
 import { isEqual } from "lodash";
-import { QuestionCircleOutlined } from '@ant-design/icons'
 export interface ModifyDataModalOnSaveProps {
   interfaceIndex: number;
   responseEditorValue: string;
@@ -103,9 +102,9 @@ const ModifyDataModal = (
    */
   const handleOk = async () => {
     const { editorInstance: responseEditorInstance } =
-    monacoEditorResponseRef.current;
+      monacoEditorResponseRef.current || {};
     const { editorInstance: responseFetchEditorInstance } =
-    monacoEditorFetchResponseRef.current;
+      monacoEditorFetchResponseRef.current || {};
     const isLocalData = activeTab == "local";
     const responseEditorValue = (
       isLocalData ? responseEditorInstance : responseFetchEditorInstance
@@ -170,11 +169,7 @@ const ModifyDataModal = (
             {
               label: (
                 <>
-                  Local Response{" "}<Tooltip title={"数据来源于真实请求,修改后保存在本地"}
-                  >
-                  {/* @ts-ignore */}
-                  <QuestionCircleOutlined />
-                </Tooltip>
+                  Local Response{" "}
                   {record?.isOpen && record?.activeType == 1 && (
                     <Tag bordered={false} color="success">
                       生效中
