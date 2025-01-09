@@ -5,10 +5,13 @@ node_modules
 /docs
 /lib
 /es
-
+/
 # local env files
 .env.local
 .env.*.local
+.pnpm-lock.yaml
+.package-lock.json
+yarn.lock
 
 # Log files
 npm-debug.log*
