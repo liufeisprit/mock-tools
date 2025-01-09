@@ -33,13 +33,6 @@ jobs:
           cd mock-tool
           pnpm run build
           
-      - name: Publish mock-tool
-        run: |
-          cd mock-tool
-          pnpm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          
       - name: Build mock-panel-sdk
         run: |
           cd mock-panel-sdk
@@ -48,7 +41,7 @@ jobs:
       - name: Copy SDK to mock-tool
         run: |
           cp mock-panel-sdk/dist/mock-panel-sdk.umd.js mock-tool/dist/
-
+          
       - name: Commit and Push Changes
         run: |
           git config --local user.email "649912343@qq.com"
@@ -56,3 +49,10 @@ jobs:
           git add mock-tool/dist/mock-panel-sdk.js
           git commit -m "chore: update mock-panel-sdk build" || exit 0
           git push
+
+      - name: Publish mock-tool
+        run: |
+          cd mock-tool
+          pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
