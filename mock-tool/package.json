@@ -16,8 +16,16 @@
       "require": "./dist/index.cjs"
     }
   },
-  "keywords": ["mock", "xhr", "fetch", "mock-tool","mock responses"],
-  "authors": ["liufei"],
+  "keywords": [
+    "mock",
+    "xhr",
+    "fetch",
+    "mock-tool",
+    "mock responses"
+  ],
+  "authors": [
+    "liufei"
+  ],
   "license": "MIT",
   "files": [
     "dist",
@@ -27,9 +35,9 @@
     "access": "public"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.25.9",
     "@types/node": "^22.10.1",
-    "unbuild": "^2.0.0",
-    "@babel/plugin-transform-runtime": "^7.25.9"
+    "unbuild": "^3.2.0"
   },
   "dependencies": {
     "core-js": "^3.6.5",
