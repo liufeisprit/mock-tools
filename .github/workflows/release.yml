@@ -21,8 +21,10 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Install pnpm
+      - name: Setup pnpm
         uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.1  # 指定pnpm版本
 
       - name: Set node
         uses: actions/setup-node@v4
