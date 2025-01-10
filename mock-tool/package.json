@@ -1,6 +1,7 @@
 {
   "name": "mock-tools",
   "version": "0.0.1-beta.1",
+  "packageManager": "pnpm@9.15.1",
   "description": "a npm module to mock/modify xhr/fetch responses for front-end development",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
