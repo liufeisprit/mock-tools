@@ -1,0 +1,50 @@
+name: Release
+
+permissions:
+  id-token: write
+  contents: write
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install Dependencies
+        run: |
+          cd mock-panel-sdk && pnpm install
+          
+      - name: Build mock-panel-sdk
+        run: |
+          cd mock-panel-sdk
+          pnpm run build
+          
+      - name: Install Dependencies
+        run: cd mock-tool && pnpm i
+
+      - name: PNPM build
+        run: cd mock-tool && pnpm run build
+      
+      - name: Copy SDK to mock-tool
+        run: |
+          cp mock-panel-sdk/dist/mock-panel-sdk.umd.js mock-tool/dist/
+
+      - name: Publish to NPM
+        run: |
+          cd mock-tool
+          pnpm -r publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
