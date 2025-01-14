@@ -29,15 +29,6 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 9.12.1  # 指定pnpm版本
-
-      - name: Install Dependencies
-        run: |
-          cd mock-panel-sdk && pnpm install
-          
-      - name: Build mock-panel-sdk
-        run: |
-          cd mock-panel-sdk
-          pnpm run build
           
       - name: Install Dependencies
         run: cd mock-tool && pnpm i
