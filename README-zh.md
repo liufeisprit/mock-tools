@@ -11,17 +11,18 @@
 
 ## 安装
 ```
-npm i mock-tools@latest
+npm i xhr-mocker@latest
 ```
 ```javascript
 // 入口文件
-import { mockInit } from 'mock-tools'
+import { mockInit } from 'xhr-mocker'
 // 在应用程序入口最上面调用
 // react项目
 mockInit({
     rules:[],  //匹配拦截的域名 支持正则 一般只配置这个 项目请求的主域名
     excludeRules:[] , // 匹配不拦截的域名 支持正则 内置了一些默认值
-    mockPanelSdkUrl: '' // mock面板sdk地址
+    mockPanelSdkUrl: '' // mock面板sdk地址 可以不传 默认使用cdn
+    disabled: false // 是否禁用 如果为true 则不会加载mock工具
 })}
 // vue项目
 mockInit({
@@ -36,14 +37,14 @@ mockInit({
 ## 使用
 
 ### 开启 Mock 功能
-1. 打开控制面板，启用监听功能后可查看所有请求记录
+1. 点击右上角图标，打开控制面板，启用监听功能后可查看所有请求记录
 2. 通过右侧开关按钮控制 Mock 功能的开启/关闭
 3. 可为单个接口配置即时响应模式
   
 ### 自定义响应数据
 在响应编辑器中，您可以：
 1. 自由编辑响应数据
-2. 基于 panel-sdk 进行功能扩展.例如: 结合 API 文档自动生成 Mock 数据,自定义开发通过 AI + api schema生成Mock数据
+2. 基于xhr-mocker-panel-sdk项目进行功能扩展.例如: 结合 API 文档自动生成 Mock 数据,自定义开发通过 AI + api schema生成Mock数据
 
 ## License
 MIT License.

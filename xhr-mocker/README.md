@@ -1,6 +1,4 @@
 
-English | [简体中文](./README-zh.md)
-  
 A powerful tool for intercepting and modifying Ajax/Fetch request responses.
 
 **Core Features：**   
@@ -21,7 +19,7 @@ import { mockInit } from 'xhr-mocker'
 mockInit({
     rules:[],  // Domain rules to intercept (supports regex), typically just configure main project domain
     excludeRules:[] , // Domain rules to exclude (supports regex), includes built-in exclusions
-    mockPanelSdkUrl: '' // Mock panel SDK URL
+    mockPanelSdkUrl: '' // Mock panel SDK URL，default is 'https://unpkg.com/xhr-mocker-panel-sdk@latest/dist/mock-panel-sdk.umd.js'
     disabled: false // Whether to disable。If true, the mock-tool will not be loaded
 })}
 // Vue projects
@@ -37,14 +35,14 @@ mockInit({
 ## Usage Guide
 
 ### Enable Mock Features
-1. Click the icon in the top right corner to open the control panel, where you can enable monitoring to view all request records
+1. Open control panel - monitor all requests after enabling listening
 2. Toggle Mock functionality using the switch button
 3. Configure immediate response mode for individual endpoints
   
 ### Customize Response Data
 In the response editor, you can:
 1. Freely edit response data
-2. Extend functionality based on xhr-mocker-panel-sdk。eg: Auto-generate mock data from API documentation or generate simulated data using AI
+2. Extend functionality based on panel-sdk。eg: Auto-generate mock data from API documentation or generate simulated data using AI
 
 ## License
 MIT License.

@@ -1,0 +1,54 @@
+{
+  "name": "xhr-mocker",
+  "version": "0.0.1-beta.2",
+  "packageManager": "pnpm@9.15.1",
+  "description": "a npm module to mock/modify xhr/fetch responses for front-end development",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "prepublishOnly": "pnpm run build"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "mock",
+    "xhr",
+    "fetch",
+    "mock-tool",
+    "mock responses"
+  ],
+  "authors": [
+    "liufei01"
+  ],
+  "license": "MIT",
+  "files": [
+    "types",
+    "dist",
+    "package.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.25.9",
+    "@types/node": "^22.10.5",
+    "unbuild": "^3.2.0"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "localforage": "^1.10.0",
+    "lodash": "^4.17.21"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liufeisprit/mock-tools.git",
+    "directory": "/xhr-mocker"
+  }
+}
